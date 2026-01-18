@@ -76,7 +76,11 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         voice_id="71a7ad14-091c-4e8e-a314-022ece01c121",  # British Reading Lady
     )
 
-    llm = OpenAILLMService(api_key=os.getenv("OPENAI_API_KEY"))
+    llm = OpenAILLMService(
+        api_key=os.getenv("OPENAI_API_KEY"),
+        base_url=os.getenv("OPENAI_API_BASE"),
+        model=os.getenv("OPENAI_MODEL"),
+    )
 
     messages = [
         {
